@@ -32,9 +32,10 @@ public class homr extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String a=request.getParameter("a");
-        String name1=request.getParameter("fname");
-        String name2=request.getParameter("lname");
+        
+        login var = new login();
+        String username= var.userName;
+   
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -43,10 +44,7 @@ public class homr extends HttpServlet {
             out.println("<title>Servlet homr</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.print("<p> helo ruba  "+a+"</b>");
-            out.print("<p>"+name1+"</b>");
-            out.print("<p>"+name2+"</b>");
-            out.println("<h1>Servlet homr at " + request.getContextPath() + "</h1>");
+            out.println("<h1> "+username+" </h1>");
             out.println("</body>");
             out.println("</html>");
             
