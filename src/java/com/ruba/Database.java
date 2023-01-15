@@ -6,17 +6,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 // This class can be used to initialize the database connection
-public class DatabaseConnection {
+public class Database {
     
     
     
 	protected static Connection initializeDatabase()throws SQLException, ClassNotFoundException {
 		// Initialize all the information regarding
-		// Database Connection
+		// DatabaseConnection Connection
 		String dbDriver = "com.mysql.jdbc.Driver";
 		String dbURL = "jdbc:mysql:// localhost:3306/";
-		// Database name to access
-		String dbName = "test";
+		// DatabaseConnection name to access
+		String dbName = "registrar office";
 		String dbUsername = "root";
 		String dbPassword = "";
 
@@ -36,21 +36,21 @@ public class DatabaseConnection {
             con.close();
         return null;
         }
-         public String getOrder() throws SQLException, ClassNotFoundException{
+         public String getPassword() throws SQLException, ClassNotFoundException{
             
         Connection con=  initializeDatabase();
        
             
-            PreparedStatement ps=con.prepareStatement("SELECT * FROM `order`"); 
+            PreparedStatement ps=con.prepareStatement("SELECT * FROM `user`"); 
              ResultSet  rs = ps.executeQuery(); 
-               String name=null;
+             String password=null;
               while(rs.next()) 
              { 
-                name = rs.getString("name"); 
+                password = rs.getString("password"); 
                       //  int sal = rs.getInt("details"); 
         }
               
-                      return name;
+                      return password;
 
          }
 }

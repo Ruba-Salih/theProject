@@ -37,7 +37,7 @@ public class createOrder extends HttpServlet {
         
          String name1=request.getParameter("fname");
         String name2=request.getParameter("lname");
-        DatabaseConnection db=new DatabaseConnection();
+        Data db=new Data();
         db.insertOrder(name1,name2);
         response.sendRedirect("/WebApplication/home");
         try (PrintWriter out = response.getWriter()) {
